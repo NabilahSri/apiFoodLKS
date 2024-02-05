@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="lksModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblbarangs">
+          <Key>
+            <PropertyRef Name="idbarang" />
+          </Key>
+          <Property Name="idbarang" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kode" Type="nvarchar" MaxLength="50" />
+          <Property Name="nama" Type="nvarchar" MaxLength="50" />
+          <Property Name="exp" Type="datetime" />
+          <Property Name="jumlah" Type="bigint" />
+          <Property Name="satuan" Type="nvarchar" MaxLength="50" />
+          <Property Name="harga" Type="bigint" />
+          <Property Name="gambar" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbldetails">
+          <Key>
+            <PropertyRef Name="iddetail" />
+          </Key>
+          <Property Name="iddetail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="namabarang" Type="nvarchar" MaxLength="50" />
+          <Property Name="jumlahbarang" Type="bigint" />
+          <Property Name="idbarang" Type="nvarchar" MaxLength="50" />
+          <Property Name="idtrans" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbllogs">
+          <Key>
+            <PropertyRef Name="idlog" />
+          </Key>
+          <Property Name="idlog" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="waktu" Type="datetime" />
+          <Property Name="aktivitas" Type="nvarchar" MaxLength="50" />
+          <Property Name="iduser" Type="int" />
+        </EntityType>
+        <EntityType Name="tbltrans">
+          <Key>
+            <PropertyRef Name="idtrans" />
+          </Key>
+          <Property Name="idtrans" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="notrans" Type="nvarchar" MaxLength="50" />
+          <Property Name="tgltrans" Type="datetime" />
+          <Property Name="total" Type="bigint" />
+          <Property Name="iduser" Type="int" />
+        </EntityType>
+        <EntityType Name="tblusers">
+          <Key>
+            <PropertyRef Name="iduser" />
+          </Key>
+          <Property Name="iduser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipe" Type="nvarchar" MaxLength="50" />
+          <Property Name="nama" Type="nvarchar" MaxLength="50" />
+          <Property Name="alamat" Type="nvarchar" MaxLength="150" />
+          <Property Name="telp" Type="nvarchar" MaxLength="50" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="pass" Type="nvarchar" MaxLength="50" />
+          <Property Name="gambar" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="lksModelStoreContainer">
+          <EntitySet Name="tblbarangs" EntityType="Self.tblbarangs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbldetails" EntityType="Self.tbldetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbllogs" EntityType="Self.tbllogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbltrans" EntityType="Self.tbltrans" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblusers" EntityType="Self.tblusers" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="lksModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblbarang">
+          <Key>
+            <PropertyRef Name="idbarang" />
+          </Key>
+          <Property Name="idbarang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="exp" Type="DateTime" Precision="3" />
+          <Property Name="jumlah" Type="Int64" />
+          <Property Name="satuan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="harga" Type="Int64" />
+          <Property Name="gambar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbldetail">
+          <Key>
+            <PropertyRef Name="iddetail" />
+          </Key>
+          <Property Name="iddetail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="namabarang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jumlahbarang" Type="Int64" />
+          <Property Name="idbarang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="idtrans" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbllog">
+          <Key>
+            <PropertyRef Name="idlog" />
+          </Key>
+          <Property Name="idlog" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="waktu" Type="DateTime" Precision="3" />
+          <Property Name="aktivitas" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="iduser" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbltran">
+          <Key>
+            <PropertyRef Name="idtrans" />
+          </Key>
+          <Property Name="idtrans" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="notrans" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tgltrans" Type="DateTime" Precision="3" />
+          <Property Name="total" Type="Int64" />
+          <Property Name="iduser" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbluser">
+          <Key>
+            <PropertyRef Name="iduser" />
+          </Key>
+          <Property Name="iduser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="alamat" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="telp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gambar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="lksEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblbarangs" EntityType="Self.tblbarang" />
+          <EntitySet Name="tbldetails" EntityType="Self.tbldetail" />
+          <EntitySet Name="tbllogs" EntityType="Self.tbllog" />
+          <EntitySet Name="tbltrans" EntityType="Self.tbltran" />
+          <EntitySet Name="tblusers" EntityType="Self.tbluser" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="lksModelStoreContainer" CdmEntityContainer="lksEntities">
+    <EntitySetMapping Name="tblbarangs">
+      <EntityTypeMapping TypeName="IsTypeOf(lksModel.tblbarang)">
+        <MappingFragment StoreEntitySet="tblbarangs">
+          <ScalarProperty Name="idbarang" ColumnName="idbarang" />
+          <ScalarProperty Name="kode" ColumnName="kode" />
+          <ScalarProperty Name="nama" ColumnName="nama" />
+          <ScalarProperty Name="exp" ColumnName="exp" />
+          <ScalarProperty Name="jumlah" ColumnName="jumlah" />
+          <ScalarProperty Name="satuan" ColumnName="satuan" />
+          <ScalarProperty Name="harga" ColumnName="harga" />
+          <ScalarProperty Name="gambar" ColumnName="gambar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbldetails">
+      <EntityTypeMapping TypeName="IsTypeOf(lksModel.tbldetail)">
+        <MappingFragment StoreEntitySet="tbldetails">
+          <ScalarProperty Name="iddetail" ColumnName="iddetail" />
+          <ScalarProperty Name="namabarang" ColumnName="namabarang" />
+          <ScalarProperty Name="jumlahbarang" ColumnName="jumlahbarang" />
+          <ScalarProperty Name="idbarang" ColumnName="idbarang" />
+          <ScalarProperty Name="idtrans" ColumnName="idtrans" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbllogs">
+      <EntityTypeMapping TypeName="IsTypeOf(lksModel.tbllog)">
+        <MappingFragment StoreEntitySet="tbllogs">
+          <ScalarProperty Name="idlog" ColumnName="idlog" />
+          <ScalarProperty Name="waktu" ColumnName="waktu" />
+          <ScalarProperty Name="aktivitas" ColumnName="aktivitas" />
+          <ScalarProperty Name="iduser" ColumnName="iduser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbltrans">
+      <EntityTypeMapping TypeName="IsTypeOf(lksModel.tbltran)">
+        <MappingFragment StoreEntitySet="tbltrans">
+          <ScalarProperty Name="idtrans" ColumnName="idtrans" />
+          <ScalarProperty Name="notrans" ColumnName="notrans" />
+          <ScalarProperty Name="tgltrans" ColumnName="tgltrans" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="iduser" ColumnName="iduser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblusers">
+      <EntityTypeMapping TypeName="IsTypeOf(lksModel.tbluser)">
+        <MappingFragment StoreEntitySet="tblusers">
+          <ScalarProperty Name="iduser" ColumnName="iduser" />
+          <ScalarProperty Name="tipe" ColumnName="tipe" />
+          <ScalarProperty Name="nama" ColumnName="nama" />
+          <ScalarProperty Name="alamat" ColumnName="alamat" />
+          <ScalarProperty Name="telp" ColumnName="telp" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="gambar" ColumnName="gambar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

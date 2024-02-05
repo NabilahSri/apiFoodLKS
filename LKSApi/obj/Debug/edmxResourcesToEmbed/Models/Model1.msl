@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="lksModelStoreContainer" CdmEntityContainer="lksEntities">
+    <EntitySetMapping Name="tblbarangs">
+      <EntityTypeMapping TypeName="IsTypeOf(lksModel.tblbarang)">
+        <MappingFragment StoreEntitySet="tblbarangs">
+          <ScalarProperty Name="idbarang" ColumnName="idbarang" />
+          <ScalarProperty Name="kode" ColumnName="kode" />
+          <ScalarProperty Name="nama" ColumnName="nama" />
+          <ScalarProperty Name="exp" ColumnName="exp" />
+          <ScalarProperty Name="jumlah" ColumnName="jumlah" />
+          <ScalarProperty Name="satuan" ColumnName="satuan" />
+          <ScalarProperty Name="harga" ColumnName="harga" />
+          <ScalarProperty Name="gambar" ColumnName="gambar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbldetails">
+      <EntityTypeMapping TypeName="IsTypeOf(lksModel.tbldetail)">
+        <MappingFragment StoreEntitySet="tbldetails">
+          <ScalarProperty Name="iddetail" ColumnName="iddetail" />
+          <ScalarProperty Name="namabarang" ColumnName="namabarang" />
+          <ScalarProperty Name="jumlahbarang" ColumnName="jumlahbarang" />
+          <ScalarProperty Name="idbarang" ColumnName="idbarang" />
+          <ScalarProperty Name="idtrans" ColumnName="idtrans" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbllogs">
+      <EntityTypeMapping TypeName="IsTypeOf(lksModel.tbllog)">
+        <MappingFragment StoreEntitySet="tbllogs">
+          <ScalarProperty Name="idlog" ColumnName="idlog" />
+          <ScalarProperty Name="waktu" ColumnName="waktu" />
+          <ScalarProperty Name="aktivitas" ColumnName="aktivitas" />
+          <ScalarProperty Name="iduser" ColumnName="iduser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbltrans">
+      <EntityTypeMapping TypeName="IsTypeOf(lksModel.tbltran)">
+        <MappingFragment StoreEntitySet="tbltrans">
+          <ScalarProperty Name="idtrans" ColumnName="idtrans" />
+          <ScalarProperty Name="notrans" ColumnName="notrans" />
+          <ScalarProperty Name="tgltrans" ColumnName="tgltrans" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="iduser" ColumnName="iduser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblusers">
+      <EntityTypeMapping TypeName="IsTypeOf(lksModel.tbluser)">
+        <MappingFragment StoreEntitySet="tblusers">
+          <ScalarProperty Name="iduser" ColumnName="iduser" />
+          <ScalarProperty Name="tipe" ColumnName="tipe" />
+          <ScalarProperty Name="nama" ColumnName="nama" />
+          <ScalarProperty Name="alamat" ColumnName="alamat" />
+          <ScalarProperty Name="telp" ColumnName="telp" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="gambar" ColumnName="gambar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

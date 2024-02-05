@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="lksModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblbarang">
+    <Key>
+      <PropertyRef Name="idbarang" />
+    </Key>
+    <Property Name="idbarang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="kode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="nama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="exp" Type="DateTime" Precision="0" />
+    <Property Name="jumlah" Type="Int64" />
+    <Property Name="satuan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="harga" Type="Int64" />
+    <Property Name="gambar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbldetail">
+    <Key>
+      <PropertyRef Name="iddetail" />
+    </Key>
+    <Property Name="iddetail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="namabarang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="jumlahbarang" Type="Int64" />
+    <Property Name="idbarang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="idtrans" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbllog">
+    <Key>
+      <PropertyRef Name="idlog" />
+    </Key>
+    <Property Name="idlog" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="waktu" Type="DateTime" Precision="3" />
+    <Property Name="aktivitas" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="iduser" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbltran">
+    <Key>
+      <PropertyRef Name="idtrans" />
+    </Key>
+    <Property Name="idtrans" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="notrans" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="tgltrans" Type="DateTime" Precision="0" />
+    <Property Name="total" Type="Int64" />
+    <Property Name="iduser" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbluser">
+    <Key>
+      <PropertyRef Name="iduser" />
+    </Key>
+    <Property Name="iduser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="nama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="alamat" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="telp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="gambar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="lksEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblbarangs" EntityType="Self.tblbarang" />
+    <EntitySet Name="tbldetails" EntityType="Self.tbldetail" />
+    <EntitySet Name="tbllogs" EntityType="Self.tbllog" />
+    <EntitySet Name="tbltrans" EntityType="Self.tbltran" />
+    <EntitySet Name="tblusers" EntityType="Self.tbluser" />
+  </EntityContainer>
+</Schema>
